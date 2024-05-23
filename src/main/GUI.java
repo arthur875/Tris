@@ -53,6 +53,8 @@ public class GUI implements KeyListener{
 	 */
 	private void initialize() {
 		frame = new JFrame("Tris");
+		frame.getContentPane().setBackground(Color.DARK_GRAY);
+		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
 		frame.setSize(500, 650);
 		frame.setLocationRelativeTo(null);
@@ -64,7 +66,8 @@ public class GUI implements KeyListener{
 		
 		
 		JLabel lblTitolo = new JLabel("TRIS!");
-		lblTitolo.setBackground(Color.BLACK);
+		lblTitolo.setForeground(Color.WHITE);
+		lblTitolo.setBackground(Color.WHITE);
 		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitolo.setFont(new Font("FiraCode Nerd Font", Font.BOLD, 42));
 		lblTitolo.setBounds(12, 23, 476, 52);
@@ -78,6 +81,8 @@ public class GUI implements KeyListener{
 		frame.getContentPane().add(lbround);
 		
 		JLabel lblRound = new JLabel("PREMI R PER RIAVVIARE");
+		lblRound.setBackground(Color.WHITE);
+		lblRound.setForeground(Color.WHITE);
 		lblRound.setFont(new Font("FiraCode Nerd Font", Font.BOLD, 20));
 		lblRound.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRound.setBounds(12, 601, 463, 37);
@@ -97,7 +102,7 @@ public class GUI implements KeyListener{
 				
 				pulsanti[riga][colonna].setFont(new Font("FiraCode Nerd Font", Font.BOLD, 100));
 				pulsanti[riga][colonna].setBounds((riga * 130) + 55, (colonna * 140) + 90, 120, 120);
-				pulsanti[riga][colonna].setBackground(Color.WHITE);
+				pulsanti[riga][colonna].setBackground(Color.LIGHT_GRAY);
 				// aggiungo i pulsanti al frame 
 				frame.getContentPane().add(pulsanti[riga][colonna]);
 				pulsanti[riga][colonna].addMouseListener(new MouseAdapter() {
@@ -107,6 +112,8 @@ public class GUI implements KeyListener{
 						
 						JButton temp = (JButton)e.getComponent();
 						
+						
+						// serve per calcolare la riga e colonna
 						int x = (temp.getX() - 55) / 130;
 						int y = (temp.getY() - 90) / 140;
 						System.out.println( (x) + "|" + (y));
@@ -217,7 +224,6 @@ public class GUI implements KeyListener{
 	
 	private void Reload() {
 for(int riga = 0; riga < pulsanti.length; riga++) {
-			
 			for (int colonna = 0; colonna < pulsanti.length; colonna++) {
 				pulsanti[riga][colonna].setText(" ");
 				
@@ -241,7 +247,6 @@ for(int riga = 0; riga < pulsanti.length; riga++) {
 			System.out.println("premuto");
 			Reload();
 			
-
 		}
 		
 		
